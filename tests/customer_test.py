@@ -61,11 +61,11 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(30.00, self.customer1.wallet)
         self.assertEqual(100.00, self.pub.till)
 
-    @unittest.skip("Delete this line to run the test")
+
     def test_customer_has_age(self):
         self.assertEqual(30, self.customer1.age)
 
-    @unittest.skip("Delete this line to run the test")
+
     def test_customer_has_drunkenness_level(self):
         self.assertIsNotNone(self.customer1.drunkenness_level)
 
