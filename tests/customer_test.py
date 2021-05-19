@@ -14,13 +14,13 @@ class TestCustomer(unittest.TestCase):
         list_of_drinks = [self.drink1, self.drink2]
         self.pub = Pub('codeclan arms', 100.00, list_of_drinks)
 
-    @unittest.skip("Delete this line to run the test")
-    def test_customer_name(self):
-        self.assertEqual("sadie", self.name)
 
-    @unittest.skip("Delete this line to run the test")
+    def test_customer_name(self):
+        self.assertEqual("sadie", self.customer1.name)
+
+
     def test_has_wallet(self):
-        self.assertEqual(30.00, self.wallet)
+        self.assertEqual(30.00, self.customer1.wallet)
 
     @unittest.skip("Delete this line to run the test")
     def test_check_enough_money__has_enough(self):
