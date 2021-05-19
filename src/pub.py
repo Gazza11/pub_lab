@@ -14,8 +14,3 @@ class Pub:
             if drink == input_drink:
                 return True
         return False
-
-    def check_customer_over_18(self, customer):
-        if customer.age >= 18:
-            return True
-        return False

@@ -28,14 +28,10 @@ class TestPub(unittest.TestCase):
         drink_to_be_found = self.pub.get_drink_by_name('beer')
         self.assertEqual(self.drink1, drink_to_be_found)
 
+    @unittest.skip("Delete this line to run the test")
+    def test_check_customer_age(self):
+        self.assertEqual(30, self.pub.check_customer_age(self.customer1))
 
-    def test_check_customer_over_18__is(self):
-        self.assertEqual(True, self.pub.check_customer_over_18(self.customer1))
-
-
-    def test_check_customer_over_18__is_not(self):
-        self.assertEqual(False, self.pub.check_customer_over_18(self.customer2))
-    
     @unittest.skip("Delete this line to run the test")
     def test_refuse_drink__too_young(self):
         self.assertEqual(None, self.customer2.buy_a_drink(self.drink1))
