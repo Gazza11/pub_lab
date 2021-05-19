@@ -7,11 +7,11 @@ from src.drink import Drink
 class TestCustomer(unittest.TestCase):
 
     def setUp(self):
-        self.customer1 = Customer("sadie", 30.00)
-        self.customer2 = Customer('matt', 0.00)
+        self.customer1 = Customer("sadie", 30.00, 30)
+        self.customer2 = Customer('matt', 0.00, 14)
 
-        self.drink1 = Drink('beer', 4.50)
-        self.drink2 = Drink('cider', 4.00)
+        self.drink1 = Drink('beer', 4.50, 5)
+        self.drink2 = Drink('cider', 4.00, 8)
         list_of_drinks = [self.drink1, self.drink2]
         self.pub = Pub('codeclan arms', 100.00, list_of_drinks)
 
@@ -60,4 +60,22 @@ class TestCustomer(unittest.TestCase):
         self.customer1.buy_a_drink('wine', self.pub)
         self.assertEqual(30.00, self.customer1.wallet)
         self.assertEqual(100.00, self.pub.till)
-    
+
+    @unittest.skip("Delete this line to run the test")
+    def test_customer_has_age(self):
+        self.assertEqual(30, self.customer1.age)
+
+    @unittest.skip("Delete this line to run the test")
+    def test_customer_has_drunkenness_level(self):
+        self.assertIsNotNone(self.customer1.drunkenness_level)
+
+    @unittest.skip("Delete this line to run the test")
+    def test_customer_gets_drunk__one_drink(self):
+        self.customer1.drink_drink('beer')
+        self.assertEqual(5, self.customer1.drunkenness_level)
+
+    @unittest.skip("Delete this line to run the test")
+    def test_customer_gets_drunk__multiple_drinks(self):
+        self.customer1.drink_drink('beer')
+        self.customer1.drink_drink('cider')
+        self.assertEqual(13, self.customer1.drunkenness_level)
