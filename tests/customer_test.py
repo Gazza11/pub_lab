@@ -66,13 +66,13 @@ class TestCustomer(unittest.TestCase):
     def test_customer_has_drunkenness_level(self):
         self.assertIsNotNone(self.customer1.drunkenness_level)
 
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_customer_gets_drunk__one_drink(self):
-        self.customer1.drink_drink('beer')
+        self.customer1.drink_drink(self.drink1)
         self.assertEqual(5, self.customer1.drunkenness_level)
 
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_customer_gets_drunk__multiple_drinks(self):
-        self.customer1.drink_drink('beer')
-        self.customer1.drink_drink('cider')
+        self.customer1.drink_drink(self.drink1)
+        self.customer1.drink_drink(self.drink2)
         self.assertEqual(13, self.customer1.drunkenness_level)

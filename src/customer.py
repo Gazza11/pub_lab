@@ -13,6 +13,9 @@ class Customer:
     def pay_for_drink(self, drink):
         self.wallet -= drink.price
 
+    def drink_drink(self, drink):
+        self.drunkenness_level += drink.alcohol_level
+
     # def buy_a_drink(self, drink_name, pub):
     #     drink_to_buy = pub.get_drink_by_name(drink_name)
     #     if drink_to_buy != None:

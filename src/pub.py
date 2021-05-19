@@ -3,6 +3,7 @@ class Pub:
         self.name = name
         self.till = till
         self.list_of_drinks = list_of_drinks
+        self.drunkenness_threshold = 12
 
     def get_drink_by_name(self, drink_name):
         for drink in self.list_of_drinks:
@@ -20,8 +21,9 @@ class Pub:
         if self.check_drink_exists(drink_to_sell) == True:
             if customer.age >= 18:
                 if customer.check_enough_money(drink_to_sell) == True:
-                    customer.pay_for_drink(drink_to_sell)
-                    self.till += drink_to_sell.price
+                    if customer.drunkenness_level < self.drunkenness_threshold:
+                        customer.pay_for_drink(drink_to_sell)
+                        self.till += drink_to_sell.price
 
 
 

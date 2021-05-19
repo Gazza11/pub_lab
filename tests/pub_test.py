@@ -14,6 +14,7 @@ class TestPub(unittest.TestCase):
 
         self.customer1 = Customer("sadie", 30.00, 30)
         self.customer2 = Customer('matt', 0.00, 14)
+        self.customer3 = Customer('Julie', 40.00, 13)
 
     def test_pub_has_name(self):
         self.assertEqual("codeclan arms", self.pub.name)
@@ -32,19 +33,17 @@ class TestPub(unittest.TestCase):
         self.pub.sell_a_drink('beer', self.customer1)
         self.assertEqual(104.50, self.pub.till)
 
-    @unittest.skip("Delete this line to run the test")
-    def test_check_customer_age(self):
-        self.assertEqual(30, self.pub.check_customer_age(self.customer1))
-
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_refuse_drink__too_young(self):
-        self.assertEqual(None, self.customer2.buy_a_drink(self.drink1))
-        self.assertEqual(0.00, self.customer2.wallet)
+        self.assertEqual(None, self.pub.sell_a_drink('beer', self.customer3))
+        self.assertEqual(40.00, self.customer3.wallet)
         self.assertEqual(100.00, self.pub.till)
 
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_refuse_drink__too_drunk(self):
-        self.customer1.drink_drink('beer')
-        self.customer1.drink_drink('cider')
-        self.assertEqual(None, self.customer1.buy_a_drink(self.drink1))
-        self.assertGreater(self.pub.drunkenness_cut_off, self.customer1.drunkenness_level)
+        self.customer1.drink_drink(self.drink1)
+        self.customer1.drink_drink(self.drink2)
+        self.assertEqual(None, self.pub.sell_a_drink('beer', self.customer1))
+        # self.assertGreater(self.pub.drunkenness_cut_off, self.customer1.drunkenness_level)
+        self.assertEqual(30.00, self.customer1.wallet)
+        self.assertEqual(100.00, self.pub.till)
