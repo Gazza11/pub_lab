@@ -2,6 +2,7 @@ import unittest
 
 from src.customer import Customer
 from src.pub import Pub
+from src.drink import Drink
 
 class TestCustomer(unittest.TestCase):
 
@@ -9,8 +10,8 @@ class TestCustomer(unittest.TestCase):
         self.customer1 = Customer("sadie", 30.00)
         self.customer2 = Customer('matt', 0.00)
 
-        self.drink1 = ('beer', 4.50)
-        self.drink2 = ('cider', 4.00)
+        self.drink1 = Drink('beer', 4.50)
+        self.drink2 = Drink('cider', 4.00)
         list_of_drinks = [self.drink1, self.drink2]
         self.pub = Pub('codeclan arms', 100.00, list_of_drinks)
 
@@ -22,14 +23,14 @@ class TestCustomer(unittest.TestCase):
     def test_has_wallet(self):
         self.assertEqual(30.00, self.customer1.wallet)
 
-    @unittest.skip("Delete this line to run the test")
+
     def test_check_enough_money__has_enough(self):
-        affordability_check = check_enough_money(self.customer1, self.drink1)
+        affordability_check = self.customer1.check_enough_money(self.drink1)
         self.assertEqual(True, affordability_check)
 
-    @unittest.skip("Delete this line to run the test")
+
     def test_check_enough_money__does_not_has_enough(self):
-        affordability_check = check_enough_money(self.customer2, self.drink1)
+        affordability_check = self.customer2.check_enough_money(self.drink1)
         self.assertEqual(False, affordability_check)
 
     @unittest.skip("Delete this line to run the test")

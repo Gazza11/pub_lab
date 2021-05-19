@@ -12,15 +12,15 @@ class TestPub(unittest.TestCase):
 
     @unittest.skip("Delete this line to run the test")   
     def test_pub_has_name(self):
-        self.assertEqual("codeclan arms", self.name)
+        self.assertEqual("codeclan arms", self.pub.name)
 
     @unittest.skip("Delete this line to run the test")
     def test_pub_has_till(self):
-        self.assertEqual(100.00, self.till)
+        self.assertEqual(100.00, self.pub.till)
 
     @unittest.skip("Delete this line to run the test")
     def test_pub_has_drinks(self):
-        self.assertEqual(2, len(self.list_of_drinks))
+        self.assertEqual(2, len(self.pub.list_of_drinks))
     
     @unittest.skip("Delete this line to run the test")
     def test_get_drink_by_name(self):
