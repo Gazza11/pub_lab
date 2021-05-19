@@ -7,8 +7,8 @@ from src.customer import Customer
 
 class TestPub(unittest.TestCase):
     def setUp(self):
-        self.drink1 = Drink('beer', 4.50)
-        self.drink2 = Drink('cider', 4.00)
+        self.drink1 = Drink('beer', 4.50, 5)
+        self.drink2 = Drink('cider', 4.00, 8)
         list_of_drinks = [self.drink1, self.drink2]
         self.pub = Pub('codeclan arms', 100.00, list_of_drinks)
 
