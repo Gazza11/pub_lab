@@ -8,5 +8,6 @@ class Customer:
             return True
         return False
 
-    def pay_for_drink(self,drink):
+    def pay_for_drink(self, drink, pub):
         self.wallet -= drink.price
+        pub.till += drink.price
