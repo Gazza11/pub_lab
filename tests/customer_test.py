@@ -34,12 +34,9 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(False, affordability_check)
 
     def test_money_left_wallet(self):
-        self.customer1.pay_for_drink(self.drink1, self.pub)
+        self.pub.sell_a_drink('beer', self.customer1)
         self.assertEqual(25.50, self.customer1.wallet)
     
-    def test_money_reached_pub(self):
-        self.customer1.pay_for_drink(self.drink1, self.pub)
-        self.assertEqual(104.50, self.pub.till)
     
     def test_check_drink_exists__does(self):
         drink_that_youre_looking_for = self.pub.get_drink_by_name('beer')
@@ -52,12 +49,12 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(False, existence_check)
 
     def test_buy_a_drink__drink_exists(self):
-        self.customer1.buy_a_drink('beer', self.pub)
+        self.pub.sell_a_drink('beer', self.customer1)
         self.assertEqual(25.50, self.customer1.wallet)
         self.assertEqual(104.50, self.pub.till)
 
     def test_buy_a_drink__drink_does_not_exists(self):
-        self.customer1.buy_a_drink('wine', self.pub)
+        self.pub.sell_a_drink('wine', self.customer1)
         self.assertEqual(30.00, self.customer1.wallet)
         self.assertEqual(100.00, self.pub.till)
 

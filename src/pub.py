@@ -14,3 +14,14 @@ class Pub:
             if drink == input_drink:
                 return True
         return False
+
+    def sell_a_drink(self, drink_name, customer):
+        drink_to_sell = self.get_drink_by_name(drink_name)
+        if self.check_drink_exists(drink_to_sell) == True:
+            if customer.age >= 18:
+                if customer.check_enough_money(drink_to_sell) == True:
+                    customer.pay_for_drink(drink_to_sell)
+                    self.till += drink_to_sell.price
+
+
+
