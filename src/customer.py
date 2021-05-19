@@ -7,3 +7,6 @@ class Customer:
         if self.wallet >= drink.price:
             return True
         return False
+
+    def pay_for_drink(self,drink):
+        self.wallet -= drink.price

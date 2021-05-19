@@ -33,9 +33,8 @@ class TestCustomer(unittest.TestCase):
         affordability_check = self.customer2.check_enough_money(self.drink1)
         self.assertEqual(False, affordability_check)
 
-    @unittest.skip("Delete this line to run the test")
     def test_money_left_wallet(self):
-        pay_for_drink(self.customer1, self.drink1)
+        self.customer1.pay_for_drink(self.drink1)
         self.assertEqual(25.50, self.customer1.wallet)
     
     @unittest.skip("Delete this line to run the test")
