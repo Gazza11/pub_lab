@@ -50,3 +50,14 @@ class TestCustomer(unittest.TestCase):
         drink_that_youre_looking_for = self.pub.get_drink_by_name('wine')
         existence_check = self.pub.check_drink_exists(drink_that_youre_looking_for)
         self.assertEqual(False, existence_check)
+
+    def test_buy_a_drink__drink_exists(self):
+        self.customer1.buy_a_drink('beer', self.pub)
+        self.assertEqual(25.50, self.customer1.wallet)
+        self.assertEqual(104.50, self.pub.till)
+
+    def test_buy_a_drink__drink_does_not_exists(self):
+        self.customer1.buy_a_drink('wine', self.pub)
+        self.assertEqual(30.00, self.customer1.wallet)
+        self.assertEqual(100.00, self.pub.till)
+    
