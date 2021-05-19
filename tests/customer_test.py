@@ -46,7 +46,6 @@ class TestCustomer(unittest.TestCase):
         existence_check = self.pub.check_drink_exists(drink_that_youre_looking_for)
         self.assertEqual(True, existence_check )
 
-    @unittest.skip("Delete this line to run the test")
     def test_check_drink_exists__doesnot(self):
         drink_that_youre_looking_for = self.pub.get_drink_by_name('wine')
         existence_check = self.pub.check_drink_exists(drink_that_youre_looking_for)
